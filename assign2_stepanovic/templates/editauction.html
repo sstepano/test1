@@ -1,0 +1,14 @@
+{% extends "basec.html" %}
+
+{% block title %}Edit your auction{% endblock %}
+
+{% block content %}
+
+<p><b>Edit auction descrription: {{ auction.title }}</b></p>
+    <form action="/update/{{ auction.id }}/" method="post">
+        {%  csrf_token %}
+       <p>Description: <textarea name="description" cols="50" rows="20">{{ auction.description }}</textarea></p>
+        <input type="submit" value="Change">
+    </form>
+
+{% endblock %}

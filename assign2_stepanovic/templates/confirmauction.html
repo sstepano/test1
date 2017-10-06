@@ -1,0 +1,26 @@
+{% extends "basec.html" %}
+
+
+<h2> Create Auction</h2>
+{% block content %}
+
+<p><b>Confirm Auction</b></p>
+{% if error %}
+  {{ error}}
+{% endif %}
+
+<b>{{title}}</b>
+
+    <form action="/saveauction/" method="post">
+        {% csrf_token %}
+         {{ form.as_p }}
+        <p>Title: <INPUT TYPE=text NAME="title" VALUE={{title}} readonly></p>
+		<p>Description: <textarea name="description" cols="50" rows="10" readonly>{{ description }}</textarea></p>
+        <p>Minimum price: <INPUT TYPE=text NAME="minimum_price" VALUE={{minimum_price}} readonly> EUR</p>
+        <p>Deadline: <INPUT  TYPE="text" NAME="deadline" VALUE={{deadline}} readonly  ></p>
+        <INPUT  TYPE="hidden" NAME="seller_id" VALUE={{seller_id}}>
+        <input type="submit" value="Submit">
+    </form>
+
+
+{% endblock %}

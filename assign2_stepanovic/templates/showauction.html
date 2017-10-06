@@ -1,0 +1,15 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Auction: {{ title }}</title>
+</head>
+<body>
+    <h1>{{ title }}</h1>
+    <p>{{ description|safe|capfirst }}</p>
+    <p>{{ timestamp }}<p>
+    <form action="/edit/{{ id }}/" method="get">
+    <input type="submit" value="Edit">
+    </form>
+</html>
+</body>

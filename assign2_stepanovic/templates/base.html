@@ -1,0 +1,47 @@
+{% load i18n %}
+<html>
+<style type= "text/css">
+    body {color: #efd; background: #453; padding: 0 5em; margin:0}
+    h1 {padding: 2em 1em; background: #675}
+    h2 {color: #bf8; border-top: 1px dotted #fff; margin-top: 2em}
+    p {margin: 1em 0}
+    a {color: red}
+</style>
+<body>
+<h1>Auction Site</h1>
+
+    <br>
+    <b><a href="/auction/">Home</a>
+        {% if user.is_authenticated %}
+            <a href="/createauction/">Create a new auction</a>
+            <a href="/edituser/">Edit your user account</a>
+            <a href="/logout/">Logout</a>
+        {% else %}
+            <a href="/login/">Login</a>
+            <a href="/createuser/">Create new user</a>
+        {% endif %}
+    </b><br><br>
+    <form action="/searchauction/{{option}}/" method="get">
+        Auction title: <INPUT TYPE=text NAME="title" >
+        <input type="submit" value="Search">
+    </form>
+    <form action="/changecurrency/{{ title }}/" method="get">
+         {{ form }}
+        <INPUT TYPE=HIDDEN NAME="id" VALUE={{id}}>
+        <input type="submit" value="Change">
+    </form>
+    <br> <br>
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

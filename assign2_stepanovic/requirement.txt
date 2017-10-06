@@ -1,0 +1,10 @@
+Django version 1.11.5
+Python 3.6.2
+certifi 2017.7.27.1
+chardet 3.0.4
+idna 2.6
+pip 9.0.1
+pytz 2017.2
+requests 2.18.4
+setuptools 28.8.0
+urllib3 1.22
